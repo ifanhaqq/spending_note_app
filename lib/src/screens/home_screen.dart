@@ -167,16 +167,17 @@ class _HomeScreenState extends State<HomeScreen> {
                         labelText: 'What you got?',
                         border: OutlineInputBorder(),
                       ),
+                      style: TextStyle(color: Color(0xffECDFCC)),
                     ),
                     SizedBox(height: 20),
                     TextField(
-                      controller: _valueController,
-                      decoration: InputDecoration(
-                        labelText: 'How much did you spent/got?',
-                        border: OutlineInputBorder(),
-                      ),
-                      keyboardType: TextInputType.number,
-                    ),
+                        controller: _valueController,
+                        decoration: InputDecoration(
+                          labelText: 'How much did you spent/got?',
+                          border: OutlineInputBorder(),
+                        ),
+                        keyboardType: TextInputType.number,
+                        style: TextStyle(color: Color(0xffECDFCC))),
                     SizedBox(
                       height: 20,
                     ),
@@ -244,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
               margin: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: Color(0XFF697565),
-                borderRadius: BorderRadius.circular(10), // Rounded corners
+                borderRadius: BorderRadius.circular(5), // Rounded corners
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -262,25 +263,33 @@ class _HomeScreenState extends State<HomeScreen> {
                           'Rp. $_totalExpenses',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Color(0xffECDFCC)),
+                              color: Color(0xffECDFCC),
+                              fontSize: 12),
                         )
                       ]),
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Income',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xffECDFCC)),
-                        ),
-                        Text(
-                          'Rp. $_totalIncome',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xffECDFCC)),
-                        )
-                      ]),
+                  Container(
+                      decoration: BoxDecoration(
+                          border: Border(
+                              right: BorderSide(color: Color(0xffECDFCC)),
+                              left: BorderSide(color: Color(0xffECDFCC)))),
+                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Income',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xffECDFCC)),
+                            ),
+                            Text(
+                              'Rp. $_totalIncome',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xffECDFCC),
+                                  fontSize: 12),
+                            )
+                          ])),
                   Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -294,7 +303,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           'Rp. $_totalBalance',
                           style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Color(0xffECDFCC)),
+                              color: Color(0xffECDFCC),
+                              fontSize: 12),
                         )
                       ]),
                 ],
@@ -311,10 +321,9 @@ class _HomeScreenState extends State<HomeScreen> {
               int value = transaction.value;
               String name = transaction.transactionName;
               return Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                margin: const EdgeInsets.symmetric(horizontal: 3),
                 decoration: BoxDecoration(
-                  border: Border.all(color: Color(0xffECDFCC)),
-                  borderRadius: BorderRadius.circular(8),
+                  border: Border(bottom: BorderSide(color: Color(0xffECDFCC))),
                 ),
                 child: ListTile(
                     title: Text(
