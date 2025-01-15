@@ -38,6 +38,12 @@ class FileStorage {
     return file.writeAsString(jsonEncode(currentData));
   }
 
+  // Used in edit & delete function
+  Future<File> rewriteData(List<Map<String, dynamic>> newData) async {
+    final file = await _localFile;
+    return file.writeAsString(jsonEncode(newData));
+  }
+
   Future<void> reset() async {
     try {
       final file = await _localFile;
